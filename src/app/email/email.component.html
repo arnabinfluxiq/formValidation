@@ -1,0 +1,12 @@
+<p>email works!</p>
+<form [formGroup]="f">
+<mat-form-field appearance="outline"> 
+<mat-label>Email</mat-label>
+<input matInput placeholder="Email" formControlName="email"  (blur) = "result = $event.target.value">
+<mat-error *ngFor= "let validation of validation_message.email">
+<mat-error *ngIf="f.get('email').hasError(validation.type) && (f.get('email').dirty || f.get('email').touched)">{{result}} {{validation.message}}</mat-error>
+</mat-error>
+</mat-form-field>
+<br>
+<button mat-raised-button>Submit</button>
+</form>

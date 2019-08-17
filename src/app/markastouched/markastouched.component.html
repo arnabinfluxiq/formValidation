@@ -1,0 +1,30 @@
+<h2>Form Validation Using Compose Method Array</h2>
+<form (ngSubmit)="SubmitData()" [formGroup]="ff">
+<mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+<input matInput placeholder="Name" formControlName="name" (blur)="inputblur('name')">
+<mat-error *ngFor ="let validation of validation_name.name">
+    <mat-error *ngIf="ff.get('name').hasError(validation.type) && (ff.get('name').dirty || ff.get('name').touched)">{{validation.message}}</mat-error>
+</mat-error>
+</mat-form-field>
+<br>
+<mat-form-field appearance="outline">
+<mat-label>Email</mat-label>
+<input matInput placeholder="Email" formControlName="email" (blur)="inputblur('email')">
+<mat-error *ngFor= "let validation of validation_message.email">
+<mat-error *ngIf="ff.get('email').hasError(validation.type) && (ff.get('email').dirty || ff.get('email').touched)">{{validation.message}}</mat-error>
+</mat-error>
+</mat-form-field>
+<br>
+<mat-checkbox formControlName="t1" value="10">10:00 AM</mat-checkbox>
+<mat-checkbox formControlName="t1" value="12">12:00 AM</mat-checkbox>
+<mat-checkbox formControlName="t1" value="2">2:00 PM</mat-checkbox>
+<mat-error *ngIf="check.val == false">Check at least one</mat-error>
+<br>
+<mat-radio-group formControlName="gender">
+<mat-radio-button value="male">Male</mat-radio-button>
+<mat-radio-button value="female">Female</mat-radio-button>    
+</mat-radio-group>
+<br>
+<button mat-raised-button >Submit</button>
+</form>

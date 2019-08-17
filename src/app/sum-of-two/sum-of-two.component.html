@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+<mat-form-field>
+<input matInput placeholder="First Number" formControlName="fno">
+</mat-form-field>
+<br>
+<mat-form-field>
+<input matInput placeholder="Second Number" formControlName="sno">
+</mat-form-field>
+<br>
+<mat-radio-group formControlName="action">
+<mat-radio-button value="add">Addition</mat-radio-button>
+<mat-radio-button value="sub">Subtraction</mat-radio-button>
+<mat-radio-button value="mul">Multiplication</mat-radio-button>
+<mat-radio-button value="div">Division</mat-radio-button>
+</mat-radio-group>
+<br>
+<!-- <mat-form-field> -->
+<input type="text" placeholder="result" formControlName="res" disabled>
+<!-- </mat-form-field> mat-form-field must contain a mat form field control (matInput)-->
+<br><br>
+<button mat-raised-button (click)="result()">Save</button>
+</form>
